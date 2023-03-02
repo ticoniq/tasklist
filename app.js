@@ -27,17 +27,25 @@ function addTask(e){
     alert('Add a task');
   }else {
 
+    // create li Element
     const li = document.createElement('li');
+    // add class 
     li.className = 'collection-item';
+    // create text node 
     li.appendChild(document.createTextNode(taskInput.value))
 
+    // create new link Element
     const link = document.createElement('a');
+    // add class 
     link.className = 'delete-item secondary-content';
+    // add innerHTML
     link.innerHTML = '<i class="fa fa-remove"></i>';
-
+    // Append the link to the li 
     li.appendChild(link);
+    // Append li to the ul 
     taskList.appendChild(li);
 
+    // clear text input 
     taskInput.value = '';
     e.preventDefault();
   }
@@ -56,6 +64,7 @@ function removeTask(e) {
 function clearTask(e) {
   // taskList.innerHTML = '';
   if (confirm('Are you sure')) {
+    // faster 
     while (taskList.firstChild) {
       taskList.removeChild(taskList.firstChild);
     }
@@ -75,14 +84,5 @@ function filterTasks(e) {
   });
 }
 
-function solveMeFirst(a, b){
-  return a + b;
-}
 
-let a = 30;
-let b = 10;
-
-let sum = solveMeFirst(a,b);
-
-console.log(sum);
 
